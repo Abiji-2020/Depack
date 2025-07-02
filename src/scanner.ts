@@ -19,7 +19,7 @@ export const getUsedDependencies = (dir: string): Set<string> => {
       console.warn(`Skipping non-JS/TS file: ${file}`);
       return;
     }
-    console.log("The source is given as type of"+ getSourceType(file));
+    console.log("The source is given as type of" + getSourceType(file));
     const code = fs.readFileSync(file, "utf-8");
     const ast = parse(code, {
       sourceType: getSourceType(file),
@@ -55,15 +55,19 @@ export const getUsedDependencies = (dir: string): Set<string> => {
       },
     });
   });
-console.log("Used dependencies:", Array.from(usedDeps).join(", "));
+  console.log("Used dependencies:", Array.from(usedDeps).join(", "));
   return usedDeps;
 };
 
 const readFilesRecursively = (folder: string): string[] => {
-  const entries = fs.readdirSync(folder, { withFileTypes: true, });
+  const entries = fs.readdirSync(folder, { withFileTypes: true });
 
   return entries.flatMap((entry) => {
-    if (entry.name.startsWith(".") || entry.name === "node_modules" || entry.name === "dist") {
+    if (
+      entry.name.startsWith(".") ||
+      entry.name === "node_modules" ||
+      entry.name === "dist"
+    ) {
       // Skip hidden files and directories
       return [];
     }

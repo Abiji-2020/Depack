@@ -49,7 +49,13 @@ export function getSourceType(
   packageType: string = "commonjs",
 ): "module" | "script" {
   const ext = path.extname(filePath);
-  if (ext === ".mjs" || ext === ".mts" || ext === ".ts" || ext === ".tsx" || ext === ".jsx") {
+  if (
+    ext === ".mjs" ||
+    ext === ".mts" ||
+    ext === ".ts" ||
+    ext === ".tsx" ||
+    ext === ".jsx"
+  ) {
     return "module";
   }
   if (ext === ".cjs" || ext === ".cts") {
