@@ -11,6 +11,6 @@ export default defineConfig({
   splitting: false,
   minify: false,
   bundle: true,
-  target: "node20",
+  target: "node23",
   platform: "node",
 });

@@ -28,6 +28,7 @@
     "start": "node dist/index.js"
   },
   "devDependencies": {
+    "@types/babel__core": "^7.20.5",
     "@types/babel__traverse": "^7.20.7",
     "@types/node": "^24.0.10",
     "prettier": "^3.6.2",
@@ -36,6 +37,7 @@
     "typescript": "^5.8.3"
   },
   "dependencies": {
+    "@babel/core": "^7.27.7",
     "@babel/parser": "^7.27.7",
     "@babel/traverse": "^7.27.7",
     "chalk": "^5.4.1",

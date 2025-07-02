@@ -3,7 +3,7 @@
 import { Command } from "commander";
 import chalk from "chalk";
 import { getDeclaredDepdencies } from "./pkgutils";
-import { getUsedDependenciesss } from "./scanner";
+import { getUsedDependencies } from "./scanner";
 
 const program = new Command();
 
@@ -16,7 +16,9 @@ program
   .parse();
 
 const options = program.opts();
-const usedDeps = getUsedDependenciesss(options.dir);
+const usedDeps = getUsedDependencies(options.dir);
+console.log(chalk.blue("Used dependencies:"));
+usedDeps.forEach((dep) => console.log(chalk.green(dep)));
 const declaredDeps = getDeclaredDepdencies();
 
 const unusedDeps = declaredDeps.filter((dep) => !usedDeps.has(dep));
